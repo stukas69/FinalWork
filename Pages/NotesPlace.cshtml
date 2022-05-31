@@ -1,0 +1,77 @@
+﻿@page
+@using NotesApp.Model
+@model NotesPlace
+@{
+    ViewData["Title"] = "Place for Your Thoughts";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Notes List</h1>
+    </div>
+
+
+  <div class="searches">
+<div>
+<form> 
+   Note Title <input type="text" class="search" asp-for="SearchInputTitle" />
+   <input type="submit" value="Search" />
+</form>
+</div>
+
+<div>
+<form> 
+   Note Category <input type="text" class="search" asp-for="SearchCategoryTitle" />
+   <input type="submit" value="Search" />
+</form>
+</div>
+</div>
+
+<div class="notes">
+@foreach(var note in Model.ListOfNotes)
+{
+    <div class="note">
+    
+    <div class="note-body">
+   <h5 class="note-title">@note.Title</h5> 
+   <h6 class="note-text">@note.Text</h6>
+   <h6 class="note-category">@note.Category.CategoryTitle</h6>
+ </div>
+
+     <a asp-page="EditNotes" asp-route-id="@note.Id">
+       <button class="btn btn-danger btn-sm" >Edit</button> </a> 
+   <form method="post">
+     
+
+       <button asp-page-handler="Delete" asp-route-id="@note.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button> 
+   </form>
+    </div>
+}
+</div>
+
+
+  <form id="note" method="post">
+                <hr />
+
+               <div class="notecreat">
+                
+                <div class="creation-title">
+                                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="input-title" aria-required="true" />
+
+                </div>
+
+                  <div class="creation-text">
+                                    <label asp-for="Text"></label>
+
+                    <input asp-for="Text" class="input-content" aria-required="true" />
+                </div>
+                 <select asp-for="CategoryId" class="select"
+                asp-items="@(new SelectList(Model.NotesCategories, nameof(NotesCategories.Id), nameof(NotesCategories.CategoryTitle)))">
+                <option>Choose note category</option>
+                </select>                
+                    <button id="input-text" type="submit" class="btn btn-primary">Save</button>       
+                </div>
+            </form>
+
+
+         

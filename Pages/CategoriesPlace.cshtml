@@ -1,0 +1,57 @@
+﻿@page
+@model NotesApp.Pages.CategoriesPlaceModel
+@{
+    ViewData["Title"] = "Your Categories";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Content of Notes</h1>
+</div>
+
+
+<div>
+    <form>
+        Category Title <input type="text" class="search" asp-for="SearchInputTitle" />
+        <input type="submit" value="Search" />
+    </form>
+</div>
+
+
+<div class="categories">
+    @foreach (var category in Model.notesCategories)
+    {
+        <div class="category">
+
+            <div class="category-body">
+                <h5 class="category-title">@category.CategoryTitle</h5>
+            </div>
+
+            <a asp-page="EditCategories" asp-route-id="@category.Id">
+                <button class="btn btn-danger btn-sm">Edit</button>
+            </a>
+            <form method="post">
+
+                <button asp-page-handler="DeleteCategory" asp-route-id="@category.Id" onclick="return confirm('Are you sure? All notes in this category will be deleted!')" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+
+
+        </div>
+    }
+</div>
+
+
+<form id="category-creation" method="post">
+    <hr />
+    <div class="notecreat">
+    <div class="creation-title">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="input-title" aria-required="true" />
+    </div>
+
+    <div>
+        <button id="input-text" type="submit" class="btn btn-primary">Save</button>
+    </div>
+    </div>
+</form>
+
+

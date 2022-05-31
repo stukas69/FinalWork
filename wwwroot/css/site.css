@@ -1,0 +1,123 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+.first-view {
+    display: flex;
+    flex-direction: column;
+    justify-items: right;
+    align-items: center;
+}
+
+.opening-scene {
+    width: 50vw;
+    margin-bottom: 17px;
+}
+
+.text-first-view {
+    display: flex;
+    flex-direction: column;
+    font-family: Tahoma;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes, .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.search {
+    margin: 50px 0;
+}
+
+.searches {
+    display: flex;
+    gap: 20px;
+    width: auto;
+    align-items: center;
+}
+
+.note-title,
+.note-text,
+category-title {
+    box-sizing: border-box;
+    display: flex;
+    align-content: center;
+}
+
+.note, .category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    background-color: #b6ff00;
+    color: #000000;
+    border: solid 1px #5087a7e0;
+    border-radius: 6px;
+    font-family: Tahoma;
+    margin: 20px auto;
+    padding: 10px;
+    width: 400px;
+}
+
+.creation-title,
+.creation-text,
+.select {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+}
+
+.btn {
+    background-color: #5087a7e0;
+    margin: 5px;
+    color: white;
+}
+
+.note-body, .category-body {
+    flex-grow: 1;
+}
+
+
+
+.btn btn-primary {
+    background-color: #5087a7e0;
+    margin: 5px 15px;
+    color: white;
+    font-size: 14px;
+    padding: 4px, 8px;
+}
+
+.btn btn-danger btn-sm {
+    display: inline;
+}
+
+.notecreat {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    margin: auto 10px;
+    padding: 10px;
+    width: auto;
+}
